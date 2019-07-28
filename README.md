@@ -1,4 +1,6 @@
-# QualResearchTool
+# Qualitative Research Tool
+
+### Setup
 
 To start your Phoenix server:
 
@@ -9,9 +11,20 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Start the front end:
 
-## Learn more
+  * Install dependencies with `cd client && npm install`
+
+View the database:
+
+  * Connect to the `qual_research_tool_dev` database
+  * Tables: `interviews`
+
+### Deployment
+
+[Deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+
+### Learn more
 
   * Official website: http://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html
