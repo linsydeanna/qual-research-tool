@@ -33,4 +33,12 @@ defmodule QualResearchTool.Interview do
     changeset = cast(interview_to_update, %{response: response}, [:response])
     Repo.update(changeset)
   end
+
+  @doc """
+  Delete an interview.
+  """
+  def delete_interview(%{"id" => id}) do
+    interview_to_delete = Repo.get(Schema, id)
+    Repo.delete(interview_to_delete)
+  end
 end

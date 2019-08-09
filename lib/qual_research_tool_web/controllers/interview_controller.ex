@@ -21,12 +21,26 @@ defmodule QualResearchToolWeb.InterviewController do
   end
 
   def update(conn, %{"interview" => interview_params}) do
+    %{"id" => id} = interview_params
+
     case Interview.update_interview(interview_params) do
       {:ok, _} ->
-        send_resp(conn, 200, Jason.encode!(interview_params))
+        send_resp(conn, 200, "The interview with id #{id} has been updated.")
 
       {:error, _changeset} ->
         send_resp(conn, 500, "There was an error while updating an interview.")
+    end
+  end
+
+  def delete(conn, %{"interview" => interview_params}) do
+    %{"id" => id} = interview_params
+
+    case Interview.delete_interview(interview_params) do
+      {:ok, _} ->
+        send_resp(conn, 200, "The interview with id #{id} has been deleted.")
+
+      {:error, _changeset} ->
+        send_resp(conn, 500, "There was an error while deleting an interview.")
     end
   end
 end
