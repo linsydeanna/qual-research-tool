@@ -14,9 +14,10 @@ defmodule QualResearchToolWeb.Router do
   end
 
   scope "/", QualResearchToolWeb do
-    pipe_through :browser
+    pipe_through :api
 
     get "/interviews", InterviewController, :index
+    post "/interviews", InterviewController, :create
   end
 
   # Other scopes may use custom stacks.
