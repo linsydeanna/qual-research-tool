@@ -9,7 +9,6 @@ defmodule QualResearchTool.Interview do
   @doc """
   List all interviews.
   """
-  # @spec list_interviews() :: [t()] ??
   def list_interviews() do
     Schema
     |> Repo.all()
@@ -24,5 +23,14 @@ defmodule QualResearchTool.Interview do
 
     changeset = cast(%Schema{}, interview_params, [:response])
     Repo.insert(changeset)
+  end
+
+  @doc """
+  Update an interview.
+  """
+  def update_interview(%{"id" => id, "response" => response}) do
+    interview_to_update = Repo.get(Schema, id)
+    changeset = cast(interview_to_update, %{response: response}, [:response])
+    Repo.update(changeset)
   end
 end

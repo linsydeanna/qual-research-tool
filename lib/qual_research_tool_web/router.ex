@@ -18,6 +18,7 @@ defmodule QualResearchToolWeb.Router do
 
     get "/interviews", InterviewController, :index
     post "/interviews", InterviewController, :create
+    put "/interviews", InterviewController, :update
   end
 
   # Other scopes may use custom stacks.

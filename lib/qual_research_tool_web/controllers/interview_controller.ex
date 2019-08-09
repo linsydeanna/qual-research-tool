@@ -19,4 +19,14 @@ defmodule QualResearchToolWeb.InterviewController do
         send_resp(conn, 500, "There was an error while creating an interview.")
     end
   end
+
+  def update(conn, %{"interview" => interview_params}) do
+    case Interview.update_interview(interview_params) do
+      {:ok, _} ->
+        send_resp(conn, 200, Jason.encode!(interview_params))
+
+      {:error, _changeset} ->
+        send_resp(conn, 500, "There was an error while updating an interview.")
+    end
+  end
 end
